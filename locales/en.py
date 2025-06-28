@@ -1,5 +1,6 @@
 TEXTS = {
     'start_message': '🎨 Hello! Welcome to the Sticker Creator Bot\n\nWith this bot, you can easily create your own sticker packs.',
+    'choose_language': '🌐 لطفاً زبان مورد نظر خود را انتخاب کنید:\n\n🇮🇷 فارسی\n🇺🇸 English\n\nPlease choose your preferred language:',
     'main_menu': '🏠 Main Menu',
     'create_pack': '🆕 Create Sticker Pack',
     'my_packs': '📦 My Packs',

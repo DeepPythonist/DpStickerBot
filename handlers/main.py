@@ -63,6 +63,13 @@ def get_language_keyboard(user_id: int):
     builder.adjust(2, 1)
     return builder.as_markup()
 
+def get_initial_language_keyboard():
+    builder = InlineKeyboardBuilder()
+    builder.button(text="🇮🇷 فارسی", callback_data="initial_lang_fa")
+    builder.button(text="🇺🇸 English", callback_data="initial_lang_en")
+    builder.adjust(2)
+    return builder.as_markup()
+
 def get_cancel_keyboard(user_id: int):
     builder = ReplyKeyboardBuilder()
     builder.button(text=get_user_text(user_id, 'cancel'))
@@ -81,10 +88,11 @@ async def start_handler(message: Message):
     
     user = db.get_user(user_id)
     if not user:
-        db.create_user(
-            user_id=user_id,
-            username=message.from_user.username
+        await message.answer(
+            get_user_text(user_id, 'choose_language'),
+            reply_markup=get_initial_language_keyboard()
         )
+        return
     
     await message.answer(
         get_user_text(user_id, 'start_message'),
@@ -124,6 +132,29 @@ async def language_handler(message: Message):
         get_user_text(user_id, 'language'),
         reply_markup=get_language_keyboard(user_id)
     )
+
+@router.callback_query(F.data.startswith("initial_lang_"))
+async def initial_language_callback_handler(callback: CallbackQuery):
+    user_id = callback.from_user.id
+    language = callback.data.split("_")[2]
+    
+    if language in config.LANGUAGES:
+        db.create_user(
+            user_id=user_id,
+            username=callback.from_user.username,
+            language=language
+        )
+        
+        await callback.message.edit_text(
+            get_user_text(user_id, 'start_message'),
+            reply_markup=None
+        )
+        await callback.message.answer(
+            get_user_text(user_id, 'main_menu'),
+            reply_markup=get_main_keyboard(user_id)
+        )
+    
+    await callback.answer()
 
 @router.callback_query(F.data.startswith("lang_"))
 async def language_callback_handler(callback: CallbackQuery):
@@ -178,19 +209,21 @@ async def check_membership_callback(callback: CallbackQuery):
     
     if await check_sponsor_membership(callback.message.bot, user_id):
         user = db.get_user(user_id)
-        if not user:
-            db.create_user(
-                user_id=user_id,
-                username=callback.from_user.username
-            )
         
         await checking_msg.edit_text(
             get_user_text(user_id, 'membership_confirmed')
         )
-        await callback.message.answer(
-            get_user_text(user_id, 'start_message'),
-            reply_markup=get_main_keyboard(user_id)
-        )
+        
+        if not user:
+            await callback.message.answer(
+                get_user_text(user_id, 'choose_language'),
+                reply_markup=get_initial_language_keyboard()
+            )
+        else:
+            await callback.message.answer(
+                get_user_text(user_id, 'start_message'),
+                reply_markup=get_main_keyboard(user_id)
+            )
     else:
         await checking_msg.edit_text(
             get_user_text(user_id, 'membership_failed'),
