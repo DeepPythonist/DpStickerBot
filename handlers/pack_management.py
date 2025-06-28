@@ -597,11 +597,16 @@ async def remove_sticker_callback(callback: CallbackQuery):
         )
         builder.button(
             text=get_user_text(user_id, 'no'),
-            callback_data=f"pack_remove_sticker_{pack_id}"
+            callback_data=f"back_to_mgmt_{pack_id[-8:]}"
         )
         builder.adjust(2)
         
-        await callback.message.edit_text(
+        try:
+            await callback.message.delete()
+        except:
+            pass
+        
+        await callback.message.answer(
             get_user_text(user_id, 'confirm_remove_sticker'),
             reply_markup=builder.as_markup()
         )
