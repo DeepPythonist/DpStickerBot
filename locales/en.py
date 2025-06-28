@@ -57,21 +57,26 @@ TEXTS = {
 
 🆕 Create Sticker Pack:
 1. Click "Create Sticker Pack"
-2. Choose pack type (Static or Animated)
+2. Enter pack title (optional)
 3. Send your files one by one
-4. Confirm each file
-5. After finishing, the pack will be created
+4. Choose appropriate emoji for each file
+5. After adding stickers, click "Done"
 
 📦 Manage Packs:
-• In "My Packs" section, you can view and manage your packs
+• In "My Packs" section, view your packs
+• For each pack you can:
+  - Add new stickers (➕)
+  - Remove existing stickers (➖)
+  - View pack link (🔗)
+  - Delete entire pack (🗑️)
 
 ⚙️ Settings:
-• Change the bot language
+• Change bot language (Persian/English)
 
 💡 Important Notes:
 • You must join sponsor channels to use the bot
-• Premium users can set custom titles
 • Maximum stickers per pack: 120
+• Supported formats: PNG, JPG, JPEG, WEBP, GIF, MP4, WEBM, TGS
 • Maximum file size:\n  - Static sticker: 512 KB\n  - Video sticker: 256 KB\n  - Animated sticker: 64 KB\n• Maximum video duration: 3 seconds''',
 
     'sponsor_check_failed': '🔒 To use the bot, you must first join our sponsor channels:\n\n💡 Click the buttons below to join the channels, then click "Check Membership".',
