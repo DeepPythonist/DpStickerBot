@@ -162,9 +162,9 @@ Use the buttons below to manage the bot.
 • Success rate: `{success_percentage:.1f}%`
 
 🕐 Finished at: `{finish_time}`''',
-    'admin_users_list_title': '👥 **Latest 20 users:**\n',
+    'admin_users_list_title': '👥 Latest 20 users:\n',
     'admin_no_packs_found': '📦 No packs found.',
-    'admin_latest_packs_title': '📦 **Latest 15 created packs:**\n',
+    'admin_latest_packs_title': '📦 Latest 15 created packs:\n',
     'admin_back_to_main': '🏠 Back to main menu',
     
     'broadcast_estimated_time': '⏱️ Estimated total time: {minutes} minutes',

@@ -162,9 +162,9 @@ TEXTS = {
 • درصد موفقیت: `{success_percentage:.1f}%`
 
 🕐 زمان تمام: `{finish_time}`''',
-    'admin_users_list_title': '👥 **آخرین 20 کاربر:**\n',
+    'admin_users_list_title': '👥 آخرین 20 کاربر:\n',
     'admin_no_packs_found': '📦 هیچ پکی یافت نشد.',
-    'admin_latest_packs_title': '📦 **آخرین 15 پک ساخته شده:**\n',
+    'admin_latest_packs_title': '📦 آخرین 15 پک ساخته شده:\n',
     'admin_back_to_main': '🏠 برگشت به منوی اصلی',
     
     'broadcast_estimated_time': '⏱️ تخمین زمان کل: {minutes} دقیقه',

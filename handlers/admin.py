@@ -296,9 +296,9 @@ async def users_list(message: Message):
         else:
             username_display = get_user_text(user_id, 'admin_no_username')
         
-        users_text += f"{i}. {is_premium} `{user_id_val}` | {username_display} | {created_date}\n"
+        users_text += f"{i}. {is_premium} {user_id_val} | {username_display} | {created_date}\n"
     
-    await message.answer(users_text, parse_mode='Markdown')
+    await message.answer(users_text)
 
 @router.message(F.text.in_(get_button_text(0, 'admin_latest_packs')))
 async def latest_packs(message: Message):
@@ -322,13 +322,11 @@ async def latest_packs(message: Message):
         sticker_count = pack.get('sticker_count', 0)
         created_date = pack.get('created_at', datetime.now()).strftime('%m/%d')
         
-        escaped_title = pack_title.replace('*', '\\*').replace('_', '\\_').replace('[', '\\[').replace(']', '\\]')
-        
-        packs_text += f"{i}. **{escaped_title}**\n"
-        packs_text += f"   👤 `{creator_id}` | 📊 {sticker_count} | 📅 {created_date}\n"
+        packs_text += f"{i}. {pack_title}\n"
+        packs_text += f"   👤 {creator_id} | 📊 {sticker_count} | 📅 {created_date}\n"
         packs_text += f"   🔗 https://t.me/addstickers/{pack_name}\n\n"
     
-    await message.answer(packs_text, parse_mode='Markdown')
+    await message.answer(packs_text)
 
 @router.message(F.text.in_(get_button_text(0, 'main_menu')))
 async def back_to_main_admin(message: Message):
