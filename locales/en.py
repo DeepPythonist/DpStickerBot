@@ -21,16 +21,16 @@ TEXTS = {
     'pack_title_premium_only': '🔒 Custom title setting is only available for premium users.',
     'pack_title_too_long': '❗ Title should not exceed 64 characters.',
     
-    'send_sticker_request': '📤 Send your sticker files:\n\n📸 Supported formats: PNG, JPG, JPEG, WEBP, GIF, MP4, WEBM, TGS\n📏 Recommended size: 512x512 pixels\n💾 Maximum size: 512 KB (images), 256 KB (video/GIF), 64 KB (TGS)\n⏱️ Maximum video duration: 3 seconds\n\n💡 After sending each file, you will be asked for confirmation.',
+    'send_sticker_request': '📤 Send your images, GIFs or stickers!\n\n📱 You can send:\n• Images (PNG, JPG, WEBP)\n• Animated GIFs (GIF, MP4)\n• Stickers (TGS)\n\n💡 I\'ll ask if you want to add each file',
     
-    'file_confirm': 'Should I add this file to the pack?',
-    'select_emoji': '😀 Choose an appropriate emoji for this sticker:',
+    'file_confirm': 'Add this file to the pack?',
+    'select_emoji': '😀 Pick an emoji for this sticker:',
     'custom_emoji': '✏️ Custom Emoji',
-    'enter_custom_emoji': '✏️ Send your desired emoji:\n\n💡 Send only emoji, regular text is not acceptable.',
-    'invalid_emoji': '❗ The text sent is not an emoji. Please send only emoji.',
-    'file_added': '✅ File added successfully. You can send the next file or click "Done".',
-    'file_added_with_emoji': '✅ File added with emoji {emoji}. You can send the next file or click "Done".',
-    'file_rejected': '❌ File was not added.',
+    'enter_custom_emoji': '✏️ Send your emoji:\n\n💡 Only emoji, no text!',
+    'invalid_emoji': '❗ That\'s not an emoji! Send only emoji',
+    'file_added': '✅ Added! Send next file or click "Done"',
+    'file_added_with_emoji': '✅ Added with {emoji}! Continue or click "Done"',
+    'file_rejected': '❌ Not added',
     
 
     'pack_creation_error': '❗ Error creating sticker pack. Please try again.',
