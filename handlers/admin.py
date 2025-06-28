@@ -291,7 +291,12 @@ async def users_list(message: Message):
         is_premium = "⭐" if user.get('is_premium') else "👤"
         created_date = user.get('created_at', datetime.now()).strftime('%m/%d')
         
-        users_text += f"{i}. {is_premium} `{user_id_val}` | @{username} | {created_date}\n"
+        if username and username != get_user_text(user_id, 'admin_no_username'):
+            username_display = f"@{username}"
+        else:
+            username_display = get_user_text(user_id, 'admin_no_username')
+        
+        users_text += f"{i}. {is_premium} `{user_id_val}` | {username_display} | {created_date}\n"
     
     await message.answer(users_text, parse_mode='Markdown')
 
@@ -317,7 +322,9 @@ async def latest_packs(message: Message):
         sticker_count = pack.get('sticker_count', 0)
         created_date = pack.get('created_at', datetime.now()).strftime('%m/%d')
         
-        packs_text += f"{i}. **{pack_title}**\n"
+        escaped_title = pack_title.replace('*', '\\*').replace('_', '\\_').replace('[', '\\[').replace(']', '\\]')
+        
+        packs_text += f"{i}. **{escaped_title}**\n"
         packs_text += f"   👤 `{creator_id}` | 📊 {sticker_count} | 📅 {created_date}\n"
         packs_text += f"   🔗 https://t.me/addstickers/{pack_name}\n\n"
     
