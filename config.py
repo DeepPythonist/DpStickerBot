@@ -1,0 +1,46 @@
+import os
+
+BOT_TOKEN = "8167888346:AAH5MW3A42ZVDbSwHsN-oDExVqgMnDAOaio"
+MONGO_URI = "mongodb://localhost:27017/"
+DATABASE_NAME = "DpStickerBot"
+
+ADMIN_IDS = [7404361314]
+SPONSOR_CHANNELS = ["@DeepPythonist"]
+
+LOG_CHANNEL_ID = -1002712486201
+
+DEFAULT_LANGUAGE = "fa"
+LANGUAGES = ["fa", "en"]
+
+STICKERS_PER_PACK_LIMIT = 120
+FILE_SIZE_LIMIT = 256 * 1024
+STATIC_STICKER_SIZE_LIMIT = 512 * 1024
+VIDEO_STICKER_SIZE_LIMIT = 256 * 1024  
+TGS_STICKER_SIZE_LIMIT = 64 * 1024
+ANIMATION_DURATION_LIMIT = 3
+CANVAS_SIZE = 512
+EMOJI_SIZE = 100
+
+TEMP_DOWNLOAD_PATH = "temp_downloads/"
+SUPPORTED_IMAGE_FORMATS = ['.png', '.jpg', '.jpeg', '.webp']
+SUPPORTED_VIDEO_FORMATS = ['.webm', '.mp4', '.gif']
+SUPPORTED_ANIMATION_FORMATS = ['.tgs']
+
+PREMIUM_FEATURES = {
+    'custom_pack_title': True,
+    'priority_processing': True
+}
+
+DEFAULT_PACK_TITLE = {
+    'fa': '@DpStickerBot استیکر ساز 🎨',
+    'en': '@DpStickerBot Sticker Maker 🎨'
+}
+
+UNIQUE_NAME_LENGTH = 8
+MAX_PACK_TITLE_LENGTH = 64
+MAX_STICKER_EMOJI_LENGTH = 10
+
+BROADCAST_DELAY_SECONDS = 1.0
+BROADCAST_PROGRESS_UPDATE_INTERVAL = 50
+
+os.makedirs(TEMP_DOWNLOAD_PATH, exist_ok=True) 
