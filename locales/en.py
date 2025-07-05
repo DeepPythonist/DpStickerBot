@@ -234,8 +234,6 @@ Use the buttons below to manage the bot.
 • Title: {pack_title}
 • Sticker count: {sticker_count}
 
-🔗 **Pack Link:**
-https://t.me/addstickers/{pack_name}
 
 💡 **Note:** Your pack has been registered in Telegram and is ready to use!''',
     'view_pack_button': '🔗 View Pack',
